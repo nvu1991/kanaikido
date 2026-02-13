@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kan Aikido | 簡合気道</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/main.css">
+  <style>
+    /* ========================================
+    HOMEPAGE STYLES
+    ======================================== */
+    
+    /* Navigation - Homepage */
+    .hero nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 30px 40px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 40px;
+    }
+    
+    .hero nav a {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 1rem;
+      color: rgba(245, 243, 239, 0.8);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s ease;
+    }
+    
+    .hero nav a:hover {
+      color: var(--ivory);
+    }
+    
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: var(--teal);
+      color: var(--ivory);
+      padding: 60px 20px;
+      position: relative;
+    }
+    
+    .logo-mark {
+      width: 140px;
+      height: 140px;
+      margin-bottom: 40px;
+    }
+    
+    .logo-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    
+    .brand-name {
+      font-family: 'Cormorant', Georgia, serif;
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    
+    .brand-japanese {
+      font-size: 1.1rem;
+      color: var(--slate-light);
+      letter-spacing: 0.3em;
+      margin-bottom: 50px;
+    }
+    
+    .slogan {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--paper);
+      letter-spacing: 0.08em;
+    }
+    
+    .scroll-hint {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--ivory);
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      opacity: 0.4;
+    }
+    
+    .scroll-hint::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 40px;
+      background: var(--slate);
+      margin: 12px auto 0;
+    }
+    
+    /* Content Sections */
+    .section {
+      padding: 120px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .section-tight {
+      padding: 80px 20px;
+    }
+    
+    .section h2 {
+      font-family: 'Cormorant', Georgia, serif;
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: var(--rich-black);
+      margin-bottom: 30px;
+      letter-spacing: 0.05em;
+    }
+    
+    .section p {
+      font-size: 1.15rem;
+      margin-bottom: 1.5em;
+      color: var(--charcoal);
+    }
+    
+    .section p:last-child {
+      margin-bottom: 0;
+    }
+    
+    /* Philosophy Section */
+    .philosophy {
+      background: white;
+    }
+    
+    .principle-list {
+      margin-top: 50px;
+    }
+    
+    .principle {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 36px;
+      align-items: baseline;
+    }
+    
+    .principle:last-child {
+      margin-bottom: 0;
+    }
+    
+    .principle-char {
+      font-size: 1.5rem;
+      color: var(--teal);
+      flex-shrink: 0;
+      width: 30px;
+    }
+    
+    .principle-text {
+      font-size: 1.1rem;
+      color: var(--charcoal);
+    }
+    
+    .principle-name {
+      color: var(--rich-black);
+      font-weight: 500;
+    }
+    
+    /* Practice Section */
+    .practice {
+      background: var(--teal);
+      color: var(--ivory);
+    }
+    
+    .practice h2 {
+      color: var(--ivory);
+    }
+    
+    .practice p {
+      color: rgba(245, 243, 239, 0.9);
+    }
+    
+    .schedule {
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(245, 243, 239, 0.2);
+    }
+    
+    .schedule-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      font-size: 1.05rem;
+      border-bottom: 1px solid rgba(245, 243, 239, 0.1);
+    }
+    
+    .schedule-row:last-child {
+      border-bottom: none;
+    }
+    
+    .schedule-day {
+      color: var(--ivory);
+    }
+    
+    .schedule-time {
+      color: rgba(245, 243, 239, 0.7);
+    }
+    
+    /* Join Section */
+    .join {
+      background: var(--ivory);
+    }
+    
+    .fees {
+      margin: 40px 0;
+      padding: 30px 0;
+      border-top: 1px solid rgba(43, 45, 47, 0.1);
+      border-bottom: 1px solid rgba(43, 45, 47, 0.1);
+    }
+    
+    .fee-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      font-size: 1.05rem;
+    }
+    
+    .fee-label {
+      color: var(--rich-black);
+    }
+    
+    .fee-amount {
+      color: var(--slate);
+    }
+    
+    .note {
+      font-size: 1rem;
+      color: var(--slate);
+      font-style: italic;
+    }
+    
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <nav>
+      <a href="about/">Giới thiệu</a>
+      <a href="#practice">Luyện tập</a>
+      <a href="#join">Tham gia</a>
+      <a href="#contact">Liên hệ</a>
+    </nav>
+    <div class="logo-mark">
+      <img src="images/KanAikido_Logo_ClearWhite_200.webp" alt="Kan Aikido"> 
+    </div>
+    <h1 class="brand-name">Kan Aikido</h1>
+    <p class="brand-japanese">簡合気道</p>
+    <p class="slogan">Khiêm · Cung · Nhẫn · Cần</p>
+    <div class="scroll-hint">scroll</div>
+  </section>
+  
+  <section id="about" class="section philosophy">
+    <h2>Võ Đạo</h2>
+    <p>Kan Aikido trở về với những điều cốt lõi. Mỗi kỹ thuật được xây dựng trên nền tảng vững chắc và tiến trình rõ ràng — sự chính xác đi cùng tính thực tiễn, kỷ luật đi cùng sự cởi mở.</p>
+    <p>Môn võ thích ứng với người tập mà vẫn giữ được bản sắc. Mọi thể trạng, mọi độ tuổi, mọi nền tảng đều tìm được con đường của mình ở đây.</p>
+    
+    <div class="principle-list">
+      <div class="principle">
+        <span class="principle-char">謙</span>
+        <span class="principle-text"><span class="principle-name">Khiêm</span> — Khiêm tốn trong tinh thần, trống rỗng để học hỏi</span>
+      </div>
+      <div class="principle">
+        <span class="principle-char">恭</span>
+        <span class="principle-text"><span class="principle-name">Cung</span> — Cung kính trong cách cư xử, tôn trọng thầy và võ đạo</span>
+      </div>
+      <div class="principle">
+        <span class="principle-char">忍</span>
+        <span class="principle-text"><span class="principle-name">Nhẫn</span> — Kiên nhẫn trong tập luyện, tin vào con đường dài</span>
+      </div>
+      <div class="principle">
+        <span class="principle-char">勤</span>
+        <span class="principle-text"><span class="principle-name">Cần</span> — Siêng năng trong nỗ lực, tập trung trong từng động tác</span>
+      </div>
+    </div>
+  </section>
+  
+  <section id="practice" class="section section-tight practice">
+    <h2>Luyện Tập</h2>
+    <p>Các buổi tập xây dựng kỹ năng thực sự qua quá trình rèn luyện kiên nhẫn và có hệ thống. Người mới và người có kinh nghiệm tập cùng nhau — việc học diễn ra theo cả hai chiều.</p>
+    
+    <div class="schedule">
+      <div class="schedule-row">
+        <span class="schedule-day">Thứ Hai – Thứ Sáu</span>
+        <span class="schedule-time">18:00 – 20:00</span>
+      </div>
+      <div class="schedule-row">
+        <span class="schedule-day">Thứ Bảy</span>
+        <span class="schedule-time">9:00 – 11:00</span>
+      </div>
+    </div>
+  </section>
+  
+  <section id="join" class="section join">
+    <h2>Tham Gia</h2>
+    <p>Người mới có thể đến xem một buổi tập trước khi quyết định. Không cần kinh nghiệm võ thuật trước đó — chỉ cần sẵn sàng học hỏi.</p>
+    
+    <div class="fees">
+      <div class="fee-row">
+        <span class="fee-label">Học phí tháng</span>
+        <span class="fee-amount">Liên hệ để biết chi tiết</span>
+      </div>
+      <div class="fee-row">
+        <span class="fee-label">Tập thử</span>
+        <span class="fee-amount">Liên hệ để biết chi tiết</span>
+      </div>
+    </div>
+    
+    <p class="note">Vui lòng đến sớm 15 phút trong buổi tập đầu tiên. Mặc trang phục thoải mái che kín đầu gối và khuỷu tay. Chúng tôi tập chân trần.</p>
+  </section>
+  
+  <footer id="contact">
+    <p class="footer-name">Kan Aikido</p>
+    <p class="footer-viet">Giản Hiệp Khí Đạo</p>
+    <p class="footer-contact">Chào đón mọi trình độ</p>
+  </footer>
+</body>
+</html>

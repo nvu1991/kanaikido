@@ -1,0 +1,497 @@
+/* Kan Aikido - Unified Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --teal: #1A5F7A;
+  --rich-black: #1A1A1A;
+  --charcoal: #2B2D2F;
+  --ivory: #F5F3EF;
+  --bronze: #A0826D;
+  --slate: #6B7B8C;
+  --slate-light: #a6c3e1;
+  --moss: #8C9A88;
+  --paper: #f0cc77;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'EB Garamond', Georgia, serif;
+  color: var(--charcoal);
+  background: var(--ivory);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ========================================
+   ARTICLE PAGE STYLES
+   ======================================== */
+
+/* Navigation - Article Pages */
+.article-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--teal);
+  z-index: 100;
+}
+
+.article-nav .nav-brand {
+  font-family: 'Cormorant', Georgia, serif;
+  font-size: 1.2rem;
+  color: var(--ivory);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.article-nav .nav-links {
+  display: flex;
+  gap: 40px;
+}
+
+.article-nav a {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1rem;
+  color: rgba(245, 243, 239, 0.8);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: color 0.2s ease;
+}
+
+.article-nav a:hover {
+  color: var(--ivory);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-brand img {
+  /* height: 28px; */
+  height: 1.6rem;
+  width: auto;
+}
+
+/* Article Hero Image */
+
+/* .article-hero-image {
+  width: 100%;
+  max-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.article-hero-image img {
+  width: 100%;
+  height: auto;
+} */
+
+.article-hero-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: var(--teal);
+}
+
+.article-hero-image img {
+  width: auto;
+  max-width: 100%;
+  max-height: 600px;
+  object-fit: contain;
+}
+
+/* @media (max-width: 600px) {
+  .article-hero-image img {
+    max-height: 250px;
+  }
+} */
+
+@media (max-width: 600px) {
+  .article-hero-image {
+    max-height: 250px;
+  }
+  .article-hero-image.portrait {
+    padding: 24px 0;
+  }
+
+  .article-hero-image.portrait img {
+    max-height: 300px;
+  }
+}
+
+.article-hero-image.portrait {
+  display: flex;
+  justify-content: center;
+  background: var(--teal);
+  padding: 40px 0;
+}
+
+.article-hero-image.portrait img {
+  max-height: 600px;
+  width: auto;
+  max-width: 90%;
+}
+
+
+/* Article Header */
+.article-header {
+  background: var(--teal);
+  color: var(--ivory);
+  padding: 140px 20px 40px;
+  text-align: center;
+}
+
+.article-header h1 {
+  font-family: 'Cormorant', Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+
+.article-header .subtitle {
+  font-size: 1.1rem;
+  color: var(--slate-light);
+  letter-spacing: 0.1em;
+}
+
+/* Article Content */
+.article-content {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.article-content h2 {
+  font-family: 'Cormorant', Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  /* color: var(--rich-black); */
+  color: var(--teal);
+  margin-top: 48px;
+  margin-bottom: 24px;
+  letter-spacing: 0.03em;
+}
+
+.article-content h2:first-child {
+  margin-top: 0;
+}
+
+.article-content h3 {
+  font-family: 'Cormorant', Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  /* color: var(--teal); */
+  color: var(--rich-black);
+  margin-top: 36px;
+  margin-bottom: 16px;
+}
+
+.article-content p {
+  font-size: 1.1rem;
+  margin-bottom: 1.4em;
+  color: var(--charcoal);
+}
+
+.article-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Lists in Articles */
+.article-content ul,
+.article-content ol {
+  margin: 24px 0;
+  padding-left: 24px;
+}
+
+.article-content li {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: var(--charcoal);
+}
+
+.article-content li:last-child {
+  margin-bottom: 0;
+}
+
+/* Text Emphasis */
+.article-content strong {
+  color: var(--rich-black);
+  font-weight: 600;
+}
+
+.term {
+  color: var(--teal);
+  font-weight: 500;
+}
+
+/* Info Block */
+.info-block {
+  background: white;
+  padding: 32px;
+  margin: 32px 0;
+  border-left: 3px solid var(--teal);
+}
+
+.info-block p {
+  margin-bottom: 0.8em;
+}
+
+.info-block p:last-child {
+  margin-bottom: 0;
+}
+
+/* Blockquote */
+blockquote {
+  margin: 40px 0;
+  padding: 24px 32px;
+  background: white;
+  border-left: 3px solid var(--bronze);
+  font-style: italic;
+  color: var(--slate);
+}
+
+blockquote p {
+  color: var(--slate);
+  margin-bottom: 0;
+}
+
+/* Horizontal Rule */
+hr {
+  border: none;
+  border-top: 1px solid rgba(43, 45, 47, 0.15);
+  margin: 48px 0;
+}
+
+/* Links in Articles */
+.article-content a {
+  color: var(--teal);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.article-content a:hover {
+  border-bottom-color: var(--teal);
+}
+
+/* Related Articles */
+.related-articles {
+  background: white;
+  padding: 60px 24px;
+}
+
+.related-articles h2 {
+  font-family: 'Cormorant', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--rich-black);
+  text-align: center;
+  margin-bottom: 40px;
+  letter-spacing: 0.05em;
+}
+
+.related-list {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.related-link {
+  display: block;
+  padding: 20px 24px;
+  background: var(--ivory);
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.related-link:hover {
+  background: #e8e6e1;
+}
+
+.related-link h3 {
+  font-family: 'Cormorant', Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--rich-black);
+  margin-bottom: 4px;
+}
+
+.related-link p {
+  font-size: 0.95rem;
+  color: var(--slate);
+  margin: 0;
+}
+
+/* ========================================
+   ARTICLE LIST (Hub Pages)
+   ======================================== */
+
+.article-list {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.article-card {
+  display: block;
+  background: white;
+  padding: 40px;
+  text-decoration: none;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.article-card:hover {
+  border-left-color: var(--teal);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.article-card h2 {
+  font-family: 'Cormorant', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--rich-black);
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+}
+
+.article-card p {
+  font-size: 1.05rem;
+  color: var(--slate);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+footer {
+  background: var(--rich-black);
+  color: var(--slate);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.footer-name {
+  font-family: 'Cormorant', Georgia, serif;
+  font-size: 1.3rem;
+  color: var(--ivory);
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.footer-viet {
+  font-size: 0.95rem;
+  color: var(--slate);
+  margin-bottom: 30px;
+}
+
+.footer-contact {
+  font-size: 0.9rem;
+  color: var(--slate);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 600px) {
+  /* Homepage Navigation */
+  .hero nav {
+    padding: 20px;
+    gap: 24px;
+    justify-content: center;
+  }
+
+  .hero nav a {
+    font-size: 0.9rem;
+  }
+
+  /* Homepage Sections */
+  .section {
+    padding: 80px 24px;
+  }
+
+  .principle {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .schedule-row,
+  .fee-row {
+    flex-direction: column;
+    gap: 4px;
+    padding: 16px 0;
+  }
+
+  /* Article Navigation */
+  .article-nav {
+    padding: 16px 20px;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .article-nav .nav-links {
+    gap: 24px;
+  }
+
+  .article-nav a {
+    font-size: 0.9rem;
+  }
+
+  /* Article Content */
+  .article-header {
+    padding: 120px 20px 60px;
+  }
+
+  .article-content {
+    padding: 60px 20px;
+  }
+
+  .article-content h2 {
+    font-size: 1.4rem;
+    margin-top: 40px;
+  }
+
+  .article-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .info-block {
+    padding: 24px 20px;
+    margin: 24px 0;
+  }
+
+  blockquote {
+    padding: 20px 24px;
+    margin: 32px 0;
+  }
+
+  .related-articles {
+    padding: 48px 20px;
+  }
+}

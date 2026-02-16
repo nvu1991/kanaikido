@@ -2,7 +2,6 @@
 
 (function() {
   function insertNav() {
-    const base = getBasePath();
     
     const nav = document.createElement('nav');
     nav.className = 'article-nav';

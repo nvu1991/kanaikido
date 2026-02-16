@@ -9,6 +9,7 @@
     nav.innerHTML = `
       <a href="/" class="nav-brand">
         <img src="/images/Kan Aikido Logo_clearWhite_80x80.webp" alt="Kan Aikido">
+        Kan Aikido
       </a>
       <div class="nav-links">
         <a href="/about/">Giới thiệu</a>

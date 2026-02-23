@@ -405,6 +405,10 @@ hr {
   margin-bottom: 32px;
 }
 
+.hashover .hashover-dashed-title {
+  font-family: 'EB Garamond', Georgia, serif;
+}
+
 /* Override HashOver default styles */
 #hashover .hashover-form-section textarea {
   font-family: 'EB Garamond', Georgia, serif;
@@ -432,6 +436,17 @@ hr {
   background: white;
   border: 1px solid rgba(43, 45, 47, 0.15);
   padding: 10px 14px;
+}
+
+#hashover .hashover-name-input::before,
+#hashover .hashover-email-input::before,
+#hashover .hashover-website-input::before {
+  font-size: 16px;
+  line-height: 1;
+  vertical-align: middle;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
 }
 
 #hashover .hashover-form-section input:focus {
@@ -492,6 +507,10 @@ hr {
 
 /* Reply/like links */
 #hashover .hashover-reply-link
+
+.hashover .hashover-comment-name {
+  font-family: 'EB Garamond', Georgia, serif;
+}
 
 /* ========================================
    FOOTER

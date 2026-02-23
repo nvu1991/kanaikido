@@ -438,6 +438,10 @@ hr {
   padding: 10px 14px;
 }
 
+#hashover .hashover-input-info {
+  margin-left: 10px;
+}
+
 #hashover .hashover-name-input::before,
 #hashover .hashover-email-input::before,
 #hashover .hashover-website-input::before {
@@ -508,7 +512,8 @@ hr {
 /* Reply/like links */
 #hashover .hashover-reply-link
 
-.hashover .hashover-comment-name {
+#hashover .hashover-comment-name,
+#hashover .hashover-content {
   font-family: 'EB Garamond', Georgia, serif;
 }
 

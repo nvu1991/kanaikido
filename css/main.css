@@ -429,14 +429,15 @@ hr {
 
 #hashover .hashover-form-section input[type="text"],
 #hashover .hashover-form-section input[type="email"],
+#hashover .hashover-form-section input[type="password"],
 #hashover .hashover-form-section input[type="url"] {
   font-family: 'EB Garamond', Georgia, serif;
   font-size: 1rem;
   color: var(--charcoal);
   background: white;
   border: 1px solid rgba(43, 45, 47, 0.15);
-  padding: 10px 14px;
-  left: 10px;
+  /* padding: 10px 14px;
+  left: 10px; */
 }
 
 #hashover .hashover-input-info {

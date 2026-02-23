@@ -386,6 +386,114 @@ hr {
 }
 
 /* ========================================
+   COMMENT SECTION
+   ======================================== */
+
+.comment-section {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 60px 24px;
+  border-top: 1px solid rgba(43, 45, 47, 0.15);
+}
+
+.comment-section h2 {
+  font-family: 'Cormorant', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--rich-black);
+  letter-spacing: 0.05em;
+  margin-bottom: 32px;
+}
+
+/* Override HashOver default styles */
+#hashover .hashover-form-section textarea {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--charcoal);
+  background: white;
+  border: 1px solid rgba(43, 45, 47, 0.15);
+  padding: 16px;
+  width: 100%;
+  resize: vertical;
+}
+
+#hashover .hashover-form-section textarea:focus {
+  outline: none;
+  border-color: var(--teal);
+}
+
+#hashover .hashover-form-section input[type="text"],
+#hashover .hashover-form-section input[type="email"],
+#hashover .hashover-form-section input[type="url"] {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1rem;
+  color: var(--charcoal);
+  background: white;
+  border: 1px solid rgba(43, 45, 47, 0.15);
+  padding: 10px 14px;
+}
+
+#hashover .hashover-form-section input:focus {
+  outline: none;
+  border-color: var(--teal);
+}
+
+/* Comment submit button */
+#hashover .hashover-submit,
+#hashover .hashover-post-button {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  background: var(--teal);
+  color: var(--ivory);
+  border: none;
+  padding: 10px 28px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+#hashover .hashover-submit:hover,
+#hashover .hashover-post-button:hover {
+  background: #15506a;
+}
+
+/* Individual comments */
+#hashover .hashover-comment {
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(43, 45, 47, 0.1);
+}
+
+#hashover .hashover-comment:last-child {
+  border-bottom: none;
+}
+
+/* Comment author name */
+#hashover .hashover-name-span {
+  font-family: 'Cormorant', Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--rich-black);
+}
+
+/* Comment date */
+#hashover .hashover-date-permalink {
+  font-size: 0.85rem;
+  color: var(--slate);
+}
+
+/* Comment text */
+#hashover .hashover-comment-body p {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--charcoal);
+}
+
+/* Reply/like links */
+#hashover .hashover-reply-link
+
+/* ========================================
    FOOTER
    ======================================== */
 

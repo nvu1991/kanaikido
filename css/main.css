@@ -514,8 +514,8 @@ hr {
 /* Reply/like links */
 #hashover .hashover-reply-link
 
-#hashover .hashover-comment-name,
-#hashover .hashover-content {
+.hashover .hashover-comment-name,
+.hashover .hashover-content {
   font-family: 'EB Garamond', Georgia, serif;
 }
 

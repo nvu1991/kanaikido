@@ -182,7 +182,6 @@ body {
   font-family: 'Cormorant', Georgia, serif;
   font-size: 1.6rem;
   font-weight: 500;
-  /* color: var(--rich-black); */
   color: var(--teal);
   margin-top: 48px;
   margin-bottom: 24px;
@@ -196,8 +195,7 @@ body {
 .article-content h3 {
   font-family: 'Cormorant', Georgia, serif;
   font-size: 1.3rem;
-  font-weight: 500;
-  /* color: var(--teal); */
+  font-weight: 700;
   color: var(--rich-black);
   margin-top: 36px;
   margin-bottom: 16px;
@@ -517,8 +515,18 @@ hr {
 #hashover .hashover-reply-link
 
 .hashover .hashover-comment-name,
+.hashover .hashover-comment .hashover-comment-name,
 .hashover .hashover-content {
   font-family: 'EB Garamond', Georgia, serif;
+}
+
+.hashover .hashover-comment .hashover-comment-name {
+  color: var(--ivory);
+}
+
+.hashover .hashover-comment > .hashover-header,
+.hashover .hashover-form .hashover-inputs {
+  background-color: var(--teal);
 }
 
 /* ========================================

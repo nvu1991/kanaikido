@@ -1,4 +1,4 @@
-// nav.js - Insert navigation bar with automatic path handling
+// nav.js - Insert navigation
 
 (function() {
   function insertNav() {

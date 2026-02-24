@@ -438,10 +438,6 @@ hr {
   left: 10px; */
 }
 
-#hashover .hashover-input-info {
-  margin-left: 10px;
-}
-
 #hashover .hashover-name-input::before,
 #hashover .hashover-password-input::before,
 #hashover .hashover-email-input::before,
@@ -451,7 +447,6 @@ hr {
   vertical-align: middle;
   display: inline-block;
   width: 24px;
-  left: 10px;
   height: 24px;
 }
 

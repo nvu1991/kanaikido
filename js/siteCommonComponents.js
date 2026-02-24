@@ -34,43 +34,63 @@
     document.getElementById('hashover').appendChild(script);
   }
 
-  function insertRelated() {
+  async function insertRelated() {
     const el = document.getElementById('related');
-    if (!el || !el.dataset.articles) return;
-    // el.innerHTML =`
-    // <section class="related-articles">
-    //   <h2>Bài viết liên quan</h2>
-    //   <div class="related-list">
-    //     <a href="aikido.html" class="related-link">
-    //       <h3>Aikido — Võ Đạo Hòa Hợp</h3>
-    //       <p>Lịch sử và các dòng phái Aikido</p>
-    //     </a>
-    //     <a href="nishio.html" class="related-link">
-    //       <h3>Trường Phái Shoji Nishio</h3>
-    //       <p>Một cách tiếp cận riêng biệt</p>
-    //     </a>
-    //     <a href="kan-aikido.html" class="related-link">
-    //       <h3>Kan Aikido — Giản Hiệp Khí Đạo</h3>
-    //       <p>Giải pháp và ứng dụng mới trên những nguyên tắc nguyên thuỷ.</p>
-    //     </a>
-    //   </div>
-    // </section>
-    // `;
-    const articles = JSON.parse(el.dataset.articles);
-    el.innerHTML = `
-      <div class="related-articles">
-        <h2>Related Articles</h2>
-        <div class="related-list">
-          ${articles.map(a => `
-            <a href="${a.url}" class="related-link">
-              <h3>${a.title}</h3>
-              <p>${a.desc}</p>
-            </a>
-          `).join('')}
+    if (!el) return;
+
+    // Determine current folder and page
+    const currentPath = window.location.pathname;
+    const folder = currentPath.substring(0, currentPath.lastIndexOf('/') + 1);
+
+    try {
+      const res = await fetch(folder + 'index.json');
+      if (!res.ok) return;
+      const articles = await res.json();
+
+      // Filter out current page, sort by most recently edited, take top 3
+      const related = articles
+        .filter(a => a.url !== currentPath)
+        .sort((a, b) => new Date(b.updated) - new Date(a.updated))
+        .slice(0, 3);
+
+      if (related.length === 0) return;
+
+      el.innerHTML = `
+        <div class="related-articles">
+          <h2>Bài viết liên quan</h2>
+          <div class="related-list">
+            ${related.map(a => `
+              <a href="${a.url}" class="related-link">
+                <h3>${a.title}</h3>
+                ${a.desc ? `<p>${a.desc}</p>` : ''}
+              </a>
+            `).join('')}
+          </div>
         </div>
-      </div>
-    `;
+      `;
+    } catch (e) {
+      // No index.json in this folder, skip silently
+    }
   }
+
+  // function insertRelated() {
+  //   const el = document.getElementById('related');
+  //   if (!el || !el.dataset.articles) return;
+  //   const articles = JSON.parse(el.dataset.articles);
+  //   el.innerHTML = `
+  //     <div class="related-articles">
+  //       <h2>Related Articles</h2>
+  //       <div class="related-list">
+  //         ${articles.map(a => `
+  //           <a href="${a.url}" class="related-link">
+  //             <h3>${a.title}</h3>
+  //             <p>${a.desc}</p>
+  //           </a>
+  //         `).join('')}
+  //       </div>
+  //     </div>
+  //   `;
+  // }
 
   function insertFooter() {
     const footer = document.createElement('footer');

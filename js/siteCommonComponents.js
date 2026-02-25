@@ -89,7 +89,7 @@
 
     let delayedElementsHTMLString = '';
     
-    const commentEl = document.getElementById('comment');
+    const commentEl = document.getElementById('comments');
     if(commentEl)
     {
       delayedElementsHTMLString +=

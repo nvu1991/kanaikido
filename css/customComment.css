@@ -7,14 +7,14 @@
 .hashover .hashover-comment-name, 
 .hashover .hashover-ip
 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
 .hashover, 
 .hashover input, 
 .hashover textarea, 
 .hashover select {
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .comment-section {

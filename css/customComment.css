@@ -2,6 +2,21 @@
    COMMENT SECTION
    ======================================== */
 
+.hashover .hashover-title, 
+.hashover .hashover-count, 
+.hashover .hashover-comment-name, 
+.hashover .hashover-ip
+{
+  font-size: 1.3rem;
+}
+
+.hashover, 
+.hashover input, 
+.hashover textarea, 
+.hashover select {
+  font-size: 1.1rem;
+}
+
 .comment-section {
   max-width: 720px;
   margin: 0 auto;

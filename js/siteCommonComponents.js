@@ -73,25 +73,6 @@
     }
   }
 
-  // function insertRelated() {
-  //   const el = document.getElementById('related');
-  //   if (!el || !el.dataset.articles) return;
-  //   const articles = JSON.parse(el.dataset.articles);
-  //   el.innerHTML = `
-  //     <div class="related-articles">
-  //       <h2>Related Articles</h2>
-  //       <div class="related-list">
-  //         ${articles.map(a => `
-  //           <a href="${a.url}" class="related-link">
-  //             <h3>${a.title}</h3>
-  //             <p>${a.desc}</p>
-  //           </a>
-  //         `).join('')}
-  //       </div>
-  //     </div>
-  //   `;
-  // }
-
   function insertFooter() {
     const footer = document.createElement('footer');
     footer.innerHTML = `
@@ -105,10 +86,26 @@
   function insertDelayedElements() {
     const el = document.getElementById('delayedElements');
     if (!el) return;
-    el.innerHTML = `
-      <link rel="stylesheet" href="/css/customComment.css">
-    `;
+
+    let delayedElementsHTMLString = '';
+    
+    const commentEl = document.getElementById('comment');
+    if(commentEl)
+    {
+      delayedElementsHTMLString +=
+      `
+        <link rel="stylesheet" href="/css/customComment.css">
+      `;
+    }
+
+    if(delayedElementsHTMLString.length == 0)
+    {
+      el.remove();
+    } else {
+      el.innerHTML = delayedElementsHTMLString;
+    }
   }
+
   function init() {
     insertNav();
     insertComments();

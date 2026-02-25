@@ -30,7 +30,7 @@
       </div>
     `;
     const script = document.createElement('script');
-    script.src = 'https://tsas.vn/hashover/comments.php';
+    script.src = 'https://tsas.vn/hashover-kanaikido/comments.php';
     document.getElementById('hashover').appendChild(script);
   }
 
@@ -76,9 +76,9 @@
   function insertFooter() {
     const footer = document.createElement('footer');
     footer.innerHTML = `
-      <div class="footer-name">Kan Aikido</div>
-      <div class="footer-viet">Võ đường Kan Aikido</div>
-      <div class="footer-contact">Contact info here</div>
+      <p class="footer-name">Kan Aikido</p>
+      <p class="footer-viet">Giản Hiệp Khí Đạo</p>
+      <p class="footer-contact">Chào đón mọi trình độ</p>
     `;
     document.body.appendChild(footer);
   }

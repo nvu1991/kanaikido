@@ -1,0 +1,40 @@
+---
+layout: default
+---
+
+{% include nav.html %}
+
+<header class="article-header">
+  <h1>{{ page.title }}</h1>
+  {% if page.subtitle %}
+    <p class="subtitle">{{ page.subtitle }}</p>
+  {% endif %}
+</header>
+
+{% if page.hero_image %}
+  <div class="article-hero-image {{ page.hero_class }}">
+    <img src="{{ page.hero_image }}" alt="{{ page.title }}">
+  </div>
+{% endif %}
+
+<div class="article-content">
+  {{ content }}
+</div>
+
+{% include comments.html %}
+
+{% if page.related %}
+<div class="related-articles">
+  <h2>Bài viết liên quan</h2>
+  <div class="related-list">
+    {% for item in page.related %}
+      <a href="{{ item.url }}" class="related-link">
+        <h3>{{ item.title }}</h3>
+        {% if item.desc %}<p>{{ item.desc }}</p>{% endif %}
+      </a>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+{% include footer.html %}

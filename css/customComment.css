@@ -38,7 +38,9 @@
 }
 
 /* Override HashOver default styles */
-#hashover .hashover-form-section textarea {
+/* #hashover .hashover-form-section textarea { */
+.hashover-form-section textarea,
+.hashover-textarea.hashover-reply-textarea {
   font-family: 'EB Garamond', Georgia, serif;
   font-size: 1.05rem;
   line-height: 1.7;
@@ -48,6 +50,20 @@
   padding: 16px;
   width: 100%;
   resize: vertical;
+}
+
+.hashover .hashover-reply .hashover-avatar:after{
+  border-right-color: var(--teal);
+}
+
+.hashover .hashover-reply .hashover-header {
+  padding: 3px 12px 3px 12px;
+  vertical-align: middle;
+}
+
+.hashover .hashover-reply .hashover-comment-name {
+  font-weight: normal;
+  font-size: 1.1rem;
 }
 
 #hashover .hashover-form-section textarea:focus {
@@ -106,7 +122,6 @@
 
 /* Individual comments */
 #hashover .hashover-comment {
-  padding: 24px 0;
   border-bottom: 1px solid rgba(43, 45, 47, 0.1);
 }
 

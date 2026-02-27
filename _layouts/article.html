@@ -17,6 +17,24 @@ layout: default
   </div>
 {% endif %}
 
+{% if page.date_published or page.tags %}
+<div class="article-meta">
+  {% if page.date_published %}
+  <div class="article-meta-date">
+    <span class="article-meta-label">Ngày xuất bản:</span> {{ page.date_published }}
+  </div>
+  {% endif %}
+  {% if page.tags %}
+  <div class="article-meta-tags">
+    <span class="article-meta-label">Tags:</span>
+    {% for tag in page.tags %}
+      <span href="/tags/{{ tag | slugify }}">{{ tag }}</span>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
+{% endif %}
+
 <div class="article-content">
   {{ content }}
 </div>

@@ -1,0 +1,197 @@
+/* ========================================
+   COMMENT SECTION
+   ======================================== */
+
+#hashover input,
+#hashover button,
+#hashover a.hashover-comment-reply,
+#hashover a.hashover-edit,
+#hashover a.hashover-like,
+#hashover a.hashover-top,
+#hashover .hashover-date-permalink,
+#hashover label,
+#hashover span.hashover-formatting {
+  font-family: var(--font-ui);
+  /* color: var(--rich-black); */
+}
+
+.hashover .hashover-title, 
+.hashover .hashover-count, 
+.hashover .hashover-ip
+{
+  font-size: var(--font-comment-size-LG);
+  color: var(--charcoal);
+}
+
+.hashover input, 
+.hashover textarea, 
+.hashover select {
+  font-family: var(--font-ui);
+  font-size: var(--font-ui-size-MD);
+}
+
+#hashover label,
+#hashover a.hashover-comment-reply,
+#hashover a.hashover-like,
+#hashover span.hashover-formatting {
+  font-size: var(--font-ui-size-SM);
+  color: var(--rich-black);
+}
+
+.comment-section {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 60px 24px;
+  border-top: 1px solid rgba(43, 45, 47, 0.15);
+}
+
+.comment-section h2 {
+  font-family: var(--font-brand);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--rich-black);
+  letter-spacing: 0.05em;
+  margin-bottom: 32px;
+}
+
+.hashover .hashover-dashed-title {
+  font-family: var(--font-body);
+  font-size: var(--font-comment-size-LG);
+  color: var(--charcoal);
+}
+
+.hashover .hashover-comment .hashover-comment-name {
+  color: var(--ivory);
+}
+
+.hashover .hashover-comment .hashover-content {
+  font-size: var(--font-comment-size-MD);
+  color:var(--charcoal);
+
+}
+.hashover .hashover-comment > .hashover-header,
+.hashover .hashover-form .hashover-inputs {
+  background-color: var(--teal);
+}
+
+/* Override HashOver default styles */
+/* #hashover .hashover-form-section textarea { */
+.hashover-form-section textarea,
+.hashover-textarea.hashover-reply-textarea {
+  font-family: var(--font-body);
+  font-size: var(--font-comment-size-MD);
+  line-height: 1.7;
+  color: var(--charcoal);
+  background: white;
+  border: 1px solid rgba(43, 45, 47, 0.15);
+  padding: 16px;
+  width: 100%;
+  resize: vertical;
+}
+
+.hashover .hashover-reply .hashover-avatar:after{
+  border-right-color: var(--teal);
+}
+
+.hashover .hashover-reply .hashover-header {
+  padding: 3px 12px 3px 12px;
+  vertical-align: middle;
+}
+
+.hashover .hashover-reply .hashover-comment-name {
+  font-weight: normal;
+  font-size: var(--font-comment-size-MD);
+}
+
+#hashover .hashover-form-section textarea:focus {
+  outline: none;
+  border-color: var(--teal);
+}
+
+#hashover .hashover-form-section input[type="text"],
+#hashover .hashover-form-section input[type="email"],
+#hashover .hashover-form-section input[type="password"],
+#hashover .hashover-form-section input[type="url"] {
+  font-family: var(--font-body);
+  font-size: var(--font-comment-size-MD);
+  color: var(--charcoal);
+  background: white;
+  border: 1px solid rgba(43, 45, 47, 0.15);
+}
+
+#hashover .hashover-name-input::before,
+#hashover .hashover-password-input::before,
+#hashover .hashover-email-input::before,
+#hashover .hashover-website-input::before {
+  font-size: 16px;
+  line-height: 1;
+  vertical-align: middle;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+
+#hashover .hashover-form-section input:focus {
+  outline: none;
+  border-color: var(--teal);
+}
+
+/* Comment submit button */
+#hashover .hashover-submit,
+#hashover .hashover-post-button {
+  font-size: var(--font-ui-size-MD);
+  letter-spacing: 0.05em;
+  background: var(--teal);
+  color: var(--ivory);
+  border: none;
+  padding: 10px 28px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+#hashover .hashover-submit:hover,
+#hashover .hashover-post-button:hover {
+  background: #15506a;
+}
+
+/* Individual comments */
+#hashover .hashover-comment {
+  border-bottom: 1px solid rgba(43, 45, 47, 0.1);
+}
+
+#hashover .hashover-comment:last-child {
+  border-bottom: none;
+}
+
+/* Comment author name */
+#hashover .hashover-name-span {
+  font-family: var(--font-brand);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--rich-black);
+}
+
+/* Comment date */
+#hashover .hashover-date-permalink {
+  font-size: var(--font-ui-size-SM);
+  font-family: var(--font-ui);
+  /* color: var(--rich-black); */
+  color: var(--slate);
+}
+
+/* Comment text */
+#hashover .hashover-comment-body p {
+  font-family: var(--font-body);
+  font-size: var(--font-comment-size-MD);
+  line-height: 1.7;
+  color: var(--charcoal);
+}
+
+/* Reply/like links */
+#hashover .hashover-reply-link
+
+.hashover .hashover-comment-name,
+.hashover .hashover-comment .hashover-comment-name,
+.hashover .hashover-content {
+  font-family: var(--font-body);
+}

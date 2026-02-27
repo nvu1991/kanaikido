@@ -1,0 +1,113 @@
+{% comment %}
+  Usage: {% include floating-bar.html %}
+  Place before closing </body> tag.
+  
+  Icons expected at:
+    /images/icon-heart.svg
+    /images/icon-share.svg
+    /images/icon-comment.svg
+    /images/icon-arrow-up.svg
+  
+  Like and Share buttons increment the displayed count in article-meta by +1.
+{% endcomment %}
+
+<div class="floating-bar" id="floatingBar">
+  <button class="fab-btn" id="fabLike" aria-label="Thích" title="Thích">
+    <img src="/images/icon-heart.svg" class="fab-icon" alt="">
+  </button>
+
+  <button class="fab-btn" id="fabShare" aria-label="Chia sẻ lên Facebook" title="Chia sẻ lên Facebook">
+    <img src="/images/icon-share.svg" class="fab-icon" alt="">
+  </button>
+
+  <button class="fab-btn" id="fabComment" aria-label="Bình luận" title="Bình luận">
+    <img src="/images/icon-comment.svg" class="fab-icon" alt="">
+  </button>
+
+  <button class="fab-btn" id="fabTop" aria-label="Về đầu trang" title="Về đầu trang">
+    <img src="/images/icon-arrow-up.svg" class="fab-icon" alt="">
+  </button>
+</div>
+
+<script>
+(function() {
+  var bar = document.getElementById('floatingBar');
+  var likeBtn = document.getElementById('fabLike');
+  var shareBtn = document.getElementById('fabShare');
+  var commentBtn = document.getElementById('fabComment');
+  var topBtn = document.getElementById('fabTop');
+  var liked = false;
+  var shared = false;
+
+  /* Format number: >=1000 → "X,YK", <1000 → whole number */
+  function formatCount(n) {
+    if (n >= 1000) {
+      var whole = Math.floor(n / 1000);
+      var remainder = Math.floor((n % 1000) / 100);
+      return whole + ',' + remainder + 'K';
+    }
+    return n.toString();
+  }
+
+  /* Show bar after scrolling 400px */
+  var ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      window.requestAnimationFrame(function() {
+        bar.classList.toggle('visible', window.scrollY > 400);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  /* Like — toggle +1 and update meta count */
+  likeBtn.addEventListener('click', function() {
+    liked = !liked;
+    this.classList.toggle('liked', liked);
+    var meta = document.getElementById('metaLikes');
+    if (meta) {
+      var base = parseInt(meta.getAttribute('data-base'), 10);
+      var count = liked ? base + 1 : base;
+      meta.querySelector('.meta-count').textContent = formatCount(count);
+    }
+  });
+
+  /* Share — open Facebook dialog and +1 count */
+  shareBtn.addEventListener('click', function() {
+    var url = encodeURIComponent(window.location.href);
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u=' + url,
+      'facebook-share',
+      'width=580,height=460'
+    );
+    if (!shared) {
+      shared = true;
+      var meta = document.getElementById('metaShares');
+      if (meta) {
+        var base = parseInt(meta.getAttribute('data-base'), 10);
+        meta.querySelector('.meta-count').textContent = formatCount(base + 1);
+      }
+    }
+  });
+
+  /* Comment — scroll to comment section, focus textarea */
+  commentBtn.addEventListener('click', function() {
+    var comments = document.getElementById('comments')
+      || document.querySelector('.hashover')
+      || document.querySelector('[id*="comment"]');
+    if (comments) {
+      comments.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(function() {
+        var textarea = comments.querySelector('textarea');
+        if (textarea) textarea.focus();
+      }, 600);
+    }
+  });
+
+  /* Go to top */
+  topBtn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>

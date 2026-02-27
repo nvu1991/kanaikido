@@ -1,4 +1,4 @@
-/* Kan Aikido - Unified Styles */
+@import './actionBar.css';
 
 * {
   margin: 0;
@@ -153,11 +153,10 @@ body {
 
 /* Article Metadata */
 .article-meta {
-  font-family: var(--font-body);
-  font-size: var(--font-body-size-SM);
   max-width: 720px;
   margin: 0 auto;
   padding: 24px 24px 0;
+  font-size: 0.95rem;
   color: var(--slate);
 }
 
@@ -173,8 +172,21 @@ body {
 /* Stats row */
 .article-meta-stats {
   margin-bottom: 12px;
-  font-size: var(--font-body-size-XS);
+  font-size: 0.9rem;
   color: var(--slate);
+}
+
+.meta-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.meta-icon {
+  width: 14px;
+  height: 14px;
+  opacity: 0.6;
+  vertical-align: middle;
 }
 
 .meta-stat-sep {
@@ -192,7 +204,7 @@ body {
 
 .article-meta-tags a,
 .article-meta-tags span:not(.article-meta-label) {
-  font-size: var(--font-body-size-SM);
+  font-size: 0.85rem;
   color: var(--teal);
   background: white;
   padding: 2px 12px;

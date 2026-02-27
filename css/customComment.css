@@ -63,7 +63,7 @@
 
 .comment-section h2 {
   font-family: var(--font-brand);
-  font-size: var(--font-brand-h3);
+  font-size: var(--font-brand-size-h3);
   font-weight: 500;
   color: var(--rich-black);
   letter-spacing: 0.05em;

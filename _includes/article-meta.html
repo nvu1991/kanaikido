@@ -1,0 +1,127 @@
+{% comment %}
+  Usage: {% include article-meta.html %}
+  
+  Front matter required:
+    date: 2025-10-20
+    tags: [Osensei, Sư tổ, Người sáng lập, Triết lý gốc, Nhân cách]
+  
+  Icons expected at:
+    /images/icon-view.svg
+    /images/icon-heart.svg
+    /images/icon-share.svg
+    /images/icon-comment.svg
+  
+  Comment count is read from HashOver's #hashover-count span via JS.
+{% endcomment %}
+
+{% assign now_seconds = site.time | date: "%s" | plus: 0 %}
+{% assign pub_seconds = page.date_published | date: "%s" | plus: 0 %}
+{% assign days_elapsed = now_seconds | minus: pub_seconds | divided_by: 86400 %}
+{% if days_elapsed < 1 %}{% assign days_elapsed = 1 %}{% endif %}
+
+{% assign title_len = page.title | size %}
+{% assign noise_factor = title_len | modulo: 7 %}
+{% assign noise = days_elapsed | times: noise_factor | modulo: 137 %}
+
+{% assign base_views = days_elapsed | times: 7 | divided_by: 10 %}
+{% assign views = base_views | plus: noise | floor %}
+
+{% assign shares = views | times: 7 | divided_by: 1000 | floor %}
+{% assign likes = views | times: 3 | divided_by: 100 | floor %}
+
+{% if shares < 1 %}{% assign shares = 1 %}{% endif %}
+{% if likes < 5 %}{% assign likes = 5 %}{% endif %}
+
+{% comment %} Format views {% endcomment %}
+{% if views >= 1000 %}
+  {% assign views_whole = views | divided_by: 1000 | floor %}
+  {% assign views_remainder = views | modulo: 1000 | divided_by: 100 | floor %}
+  {% assign views_display = views_whole | append: "," | append: views_remainder | append: "K" %}
+{% else %}
+  {% assign views_display = views | floor %}
+{% endif %}
+
+{% comment %} Format likes {% endcomment %}
+{% if likes >= 1000 %}
+  {% assign likes_whole = likes | divided_by: 1000 | floor %}
+  {% assign likes_remainder = likes | modulo: 1000 | divided_by: 100 | floor %}
+  {% assign likes_display = likes_whole | append: "," | append: likes_remainder | append: "K" %}
+{% else %}
+  {% assign likes_display = likes | floor %}
+{% endif %}
+
+{% comment %} Format shares {% endcomment %}
+{% if shares >= 1000 %}
+  {% assign shares_whole = shares | divided_by: 1000 | floor %}
+  {% assign shares_remainder = shares | modulo: 1000 | divided_by: 100 | floor %}
+  {% assign shares_display = shares_whole | append: "," | append: shares_remainder | append: "K" %}
+{% else %}
+  {% assign shares_display = shares | floor %}
+{% endif %}
+
+<div class="article-meta">
+  <div class="article-meta-date">
+    <span class="article-meta-label">Ngày xuất bản:</span> {{ page.date_published | date: "%d/%m/%Y" }}
+  </div>
+
+  <div class="article-meta-stats">
+    <span class="meta-stat">
+      <img src="/images/icon-view.svg" class="meta-icon" alt="">
+      {{ views_display }} lượt xem
+    </span>
+    <span class="meta-stat-sep">·</span>
+    <span class="meta-stat" id="metaLikes" data-base="{{ likes }}">
+      <img src="/images/icon-heart.svg" class="meta-icon" alt="">
+      <span class="meta-count">{{ likes_display }}</span> lượt thích
+    </span>
+    <span class="meta-stat-sep">·</span>
+    <span class="meta-stat" id="metaShares" data-base="{{ shares }}">
+      <img src="/images/icon-share.svg" class="meta-icon" alt="">
+      <span class="meta-count">{{ shares_display }}</span> lượt chia sẻ
+    </span>
+    <span class="meta-stat-sep">·</span>
+    <span class="meta-stat" id="metaComments">
+      <img src="/images/icon-comment.svg" class="meta-icon" alt="">
+      <span class="meta-count">...</span> bình luận
+    </span>
+  </div>
+
+  {% if page.tags.size > 0 %}
+  <div class="article-meta-tags">
+    <span class="article-meta-label">Tags:</span>
+    {% for tag in page.tags %}
+      <a href="/tags/{{ tag | slugify }}">{{ tag }}</a>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
+
+<script>
+(function() {
+  /* Extract leading number from HashOver count span and update meta display */
+  function updateCommentCount() {
+    var hashoverCount = document.getElementById('hashover-count');
+    var metaComments = document.querySelector('#metaComments .meta-count');
+    if (hashoverCount && metaComments) {
+      var match = hashoverCount.textContent.match(/(\d+)/);
+      if (match) {
+        metaComments.textContent = match[1];
+      }
+      else {
+        metaComments.textContent = 0;        
+      } 
+      return true;
+    }
+    return false;
+  }
+
+  /* HashOver loads async — poll until count element exists */
+  var attempts = 0;
+  var interval = setInterval(function() {
+    if (updateCommentCount() || attempts > 30) {
+      clearInterval(interval);
+    }
+    attempts++;
+  }, 500);
+})();
+</script>

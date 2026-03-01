@@ -2,31 +2,6 @@
 HOMEPAGE STYLES
 ======================================== */
 
-/* Navigation - Homepage */
-/* .hero nav {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 30px 40px;
-  display: flex;
-  justify-content: flex-end;
-  gap: 40px;
-}
-
-.hero nav a {
-  font-family: 'EB Garamond', Georgia, serif;
-  font-size: 1rem;
-  color: rgba(245, 243, 239, 0.8);
-  text-decoration: none;
-  letter-spacing: 0.05em;
-  transition: color 0.2s ease;
-}
-
-.hero nav a:hover {
-  color: var(--ivory);
-} */
-
 /* Hero Section */
 .hero {
   min-height: 100vh;
@@ -226,7 +201,8 @@ HOMEPAGE STYLES
   color: var(--rich-black);
 }
 
-.fee-amount {
+.fee-amount, 
+.fee-amount a{
   color: var(--slate);
 }
 

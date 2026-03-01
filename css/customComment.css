@@ -1,5 +1,5 @@
 /* ========================================
-   COMMENT SECTION
+   CUSTOMIZE APPEARANCE FOR HASHOVER
    ======================================== */
 
 /* Font family: UI elements */
@@ -51,23 +51,6 @@
 #hashover span.hashover-formatting {
   font-size: var(--font-ui-size-SM);
   color: var(--rich-black);
-}
-
-/* Comment section wrapper */
-.comment-section {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 60px 24px;
-  border-top: 1px solid rgba(43, 45, 47, 0.15);
-}
-
-.comment-section h2 {
-  font-family: var(--font-brand);
-  font-size: var(--font-brand-size-h3);
-  font-weight: 500;
-  color: var(--rich-black);
-  letter-spacing: 0.05em;
-  margin-bottom: 32px;
 }
 
 /* Comment colors */

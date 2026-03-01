@@ -501,16 +501,6 @@ footer {
   margin-bottom: 30px;
 }
 
-/* .footer-contact {
-  font-size: 0.9rem;
-  color: var(--slate);
-  text-decoration: none;
-}
-
-.footer-contact:hover {
-  color: var(--ivory);
-} */
-
 .footer-contact {
   position: relative;
   left: -8px;
@@ -620,4 +610,32 @@ footer {
   .related-articles {
     padding: 48px 20px;
   }
+}
+
+/* ========================================
+   COMMENT SECTION
+   ======================================== */
+
+   /* Comment section wrapper */
+.comment-section {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 60px 24px;
+  border-top: 1px solid rgba(43, 45, 47, 0.15);
+}
+
+.comment-section h2 {
+  font-family: var(--font-brand);
+  font-size: var(--font-brand-size-h3);
+  font-weight: 500;
+  color: var(--rich-black);
+  letter-spacing: 0.05em;
+  margin-bottom: 32px;
+}
+
+.comment-notice {
+  font-size: 0.85rem;
+  color: var(--slate);
+  font-style: italic;
+  margin-bottom: 0.75rem;
 }

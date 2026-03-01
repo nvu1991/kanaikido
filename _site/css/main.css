@@ -501,9 +501,44 @@ footer {
   margin-bottom: 30px;
 }
 
-.footer-contact {
+/* .footer-contact {
   font-size: 0.9rem;
   color: var(--slate);
+  text-decoration: none;
+}
+
+.footer-contact:hover {
+  color: var(--ivory);
+} */
+
+.footer-contact {
+  position: relative;
+  left: -8px;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  gap: 6px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: var(--slate);  
+}
+
+.footer-contact:hover {
+  color: var(--ivory);
+}
+
+.footer-contact-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: currentColor;
+  -webkit-mask-image: url('/images/icon-messenger.svg');
+  mask-image: url('/images/icon-messenger.svg');
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
 }
 
 /* ========================================

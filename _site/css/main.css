@@ -56,7 +56,7 @@ body {
    ======================================== */
 
 /* Navigation - Article Pages */
-.article-nav {
+.site-nav {
   position: fixed;
   top: 0;
   left: 0;
@@ -69,7 +69,23 @@ body {
   z-index: 100;
 }
 
-.article-nav .nav-brand {
+/* Landing page nav - transparent overlay */
+.site-nav--home {
+  background: transparent;
+  position: absolute;
+}
+
+/* For easier viewing IF home's hero image is busy*/
+/* .site-nav--home {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent);
+  position: absolute;
+} */
+
+.site-nav--home .nav-brand {
+  visibility: hidden;
+}
+
+.site-nav .nav-brand {
   font-family: var(--font-brand);
   font-size: 1.2rem;
   color: var(--ivory);
@@ -78,12 +94,12 @@ body {
   text-transform: uppercase;
 }
 
-.article-nav .nav-links {
+.site-nav .nav-links {
   display: flex;
   gap: 40px;
 }
 
-.article-nav a {
+.site-nav a {
   font-family: var(--font-body);
   font-size: 1rem;
   color: rgba(245, 243, 239, 0.8);
@@ -92,7 +108,7 @@ body {
   transition: color 0.2s ease;
 }
 
-.article-nav a:hover {
+.site-nav a:hover {
   color: var(--ivory);
 }
 
@@ -524,17 +540,17 @@ footer {
   }
 
   /* Article Navigation */
-  .article-nav {
+  .site-nav {
     padding: 16px 20px;
     flex-direction: column;
     gap: 12px;
   }
 
-  .article-nav .nav-links {
+  .site-nav .nav-links {
     gap: 24px;
   }
 
-  .article-nav a {
+  .site-nav a {
     font-size: 0.9rem;
   }
 

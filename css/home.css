@@ -1,0 +1,237 @@
+/* ========================================
+HOMEPAGE STYLES
+======================================== */
+
+/* Navigation - Homepage */
+/* .hero nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 30px 40px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 40px;
+}
+
+.hero nav a {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1rem;
+  color: rgba(245, 243, 239, 0.8);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: color 0.2s ease;
+}
+
+.hero nav a:hover {
+  color: var(--ivory);
+} */
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--teal);
+  color: var(--ivory);
+  padding: 60px 20px;
+  position: relative;
+}
+
+.logo-mark {
+  width: 140px;
+  height: 140px;
+  margin-bottom: 40px;
+}
+
+.logo-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.brand-name {
+  font-family: 'Cormorant', Georgia, serif;
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.brand-japanese {
+  font-size: 1.1rem;
+  color: var(--slate-light);
+  letter-spacing: 0.3em;
+  margin-bottom: 50px;
+}
+
+.slogan {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--paper);
+  letter-spacing: 0.08em;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--ivory);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  opacity: 0.4;
+}
+
+.scroll-hint::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: var(--slate);
+  margin: 12px auto 0;
+}
+
+/* Content Sections */
+.section {
+  padding: 120px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.section-tight {
+  padding: 80px 20px;
+}
+
+.section h2 {
+  font-family: 'Cormorant', Georgia, serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--rich-black);
+  margin-bottom: 30px;
+  letter-spacing: 0.05em;
+}
+
+.section p {
+  font-size: 1.15rem;
+  margin-bottom: 1.5em;
+  color: var(--charcoal);
+}
+
+.section p:last-child {
+  margin-bottom: 0;
+}
+
+/* Philosophy Section */
+.philosophy {
+  background: white;
+}
+
+.principle-list {
+  margin-top: 50px;
+}
+
+.principle {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 36px;
+  align-items: baseline;
+}
+
+.principle:last-child {
+  margin-bottom: 0;
+}
+
+.principle-char {
+  font-size: 1.5rem;
+  color: var(--teal);
+  flex-shrink: 0;
+  width: 30px;
+}
+
+.principle-text {
+  font-size: 1.1rem;
+  color: var(--charcoal);
+}
+
+.principle-name {
+  color: var(--rich-black);
+  font-weight: 500;
+}
+
+/* Practice Section */
+.practice {
+  background: var(--teal);
+  color: var(--ivory);
+}
+
+.practice h2 {
+  color: var(--ivory);
+}
+
+.practice p {
+  color: rgba(245, 243, 239, 0.9);
+}
+
+.schedule {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(245, 243, 239, 0.2);
+}
+
+.schedule-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  font-size: 1.05rem;
+  border-bottom: 1px solid rgba(245, 243, 239, 0.1);
+}
+
+.schedule-row:last-child {
+  border-bottom: none;
+}
+
+.schedule-day {
+  color: var(--ivory);
+}
+
+.schedule-time {
+  color: rgba(245, 243, 239, 0.7);
+}
+
+/* Join Section */
+.join {
+  background: var(--ivory);
+}
+
+.fees {
+  margin: 40px 0;
+  padding: 30px 0;
+  border-top: 1px solid rgba(43, 45, 47, 0.1);
+  border-bottom: 1px solid rgba(43, 45, 47, 0.1);
+}
+
+.fee-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  font-size: 1.05rem;
+}
+
+.fee-label {
+  color: var(--rich-black);
+}
+
+.fee-amount {
+  color: var(--slate);
+}
+
+.note {
+  font-size: 1rem;
+  color: var(--slate);
+  font-style: italic;
+}

@@ -60,6 +60,11 @@
 {% endif %}
 
 <div class="article-meta">
+  {% if page.source_type == "Original" %}
+  <span class="article-meta-type article-meta-type--original">Original</span> 
+  {% else %}
+  <span class="article-meta-type article-meta-type--repost">Republished</span>
+  {% endif %}
   <div class="article-meta-date">
     <span class="article-meta-label">Ngày xuất bản:</span> {{ page.date_published | date: "%d/%m/%Y" }}
   </div>

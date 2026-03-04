@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page Brief</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      background: #08080f;
+      color: #d0d0d8;
+      font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+      line-height: 1.5;
+    }
+    
+    /* Header */
+    .header {
+      border-bottom: 1px solid #1a1a25;
+      padding: 24px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .header h1 { font-size: 20px; font-weight: 700; color: #e8e8f0; letter-spacing: -0.5px; }
+    .header .meta { font-size: 13px; color: #606078; margin-top: 4px; }
+    .btn-copy {
+      padding: 10px 24px;
+      font-size: 14px;
+      font-weight: 600;
+      background: #1a1a2e;
+      color: #e8e8f0;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: 'IBM Plex Sans', sans-serif;
+      transition: background 0.2s;
+    }
+    .btn-copy:hover { background: #2a2a4e; }
+    .btn-copy.ready { background: #3a3aff; }
+    
+    /* Progress */
+    .progress-track { height: 2px; background: #1a1a25; }
+    .progress-bar { height: 2px; background: #3a3aff; transition: width 0.4s ease; }
+    
+    /* Section nav */
+    .section-nav {
+      padding: 16px 32px;
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      border-bottom: 1px solid #12121a;
+    }
+    .section-nav button {
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 400;
+      background: transparent;
+      color: #606078;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: 'IBM Plex Sans', sans-serif;
+      white-space: nowrap;
+    }
+    .section-nav button.active {
+      font-weight: 700;
+      background: #1a1a2e;
+      color: #c8c8f0;
+      border-color: #2a2a40;
+    }
+    
+    /* Content */
+    .content { max-width: 720px; margin: 0 auto; padding: 32px 24px 120px; }
+    .content h2 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #8080a0;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 28px;
+      font-family: 'Space Mono', monospace;
+    }
+    .question-block { margin-bottom: 32px; }
+    .q-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .q-num { font-size: 11px; color: #505060; font-family: 'Space Mono', monospace; }
+    .badge {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .badge-5 { background: #1a1a2e; color: #e0e0e0; }
+    .badge-4 { background: #2a2a3e; color: #c0c0d0; }
+    .badge-3 { background: #3a3a4a; color: #a0a0b0; }
+    .badge-2 { background: #4a4a55; color: #909098; }
+    
+    .q-label {
+      display: block;
+      font-size: 15px;
+      font-weight: 500;
+      color: #c8c8d8;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+    
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 10px 12px;
+      font-size: 14px;
+      border: 1px solid #2a2a35;
+      border-radius: 6px;
+      background: #0d0d14;
+      color: #e0e0e8;
+      outline: none;
+      transition: border-color 0.2s;
+      font-family: 'IBM Plex Sans', sans-serif;
+    }
+    input[type="text"]:focus, textarea:focus { border-color: #3a3aff; }
+    textarea { resize: vertical; min-height: 72px; }
+    
+    .options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .opt-btn {
+      padding: 8px 16px;
+      font-size: 13px;
+      background: #0d0d14;
+      color: #808090;
+      border: 1px solid #2a2a35;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: 'IBM Plex Sans', sans-serif;
+      transition: all 0.15s;
+    }
+    .opt-btn.selected {
+      background: #1e1e50;
+      color: #a0a0ff;
+      border-color: #3a3aff;
+    }
+    
+    /* Nav buttons */
+    .nav-buttons { display: flex; justify-content: space-between; margin-top: 16px; }
+    .nav-btn {
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      background: transparent;
+      color: #808090;
+      border: 1px solid #1a1a25;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: 'IBM Plex Sans', sans-serif;
+    }
+    .nav-btn:disabled { color: #303040; cursor: default; }
+    .nav-btn.next { background: #1a1a2e; color: #c8c8f0; border-color: #2a2a40; }
+    .nav-btn.next:disabled { background: transparent; color: #303040; }
+    
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .modal-overlay.visible { display: flex; }
+    .modal {
+      background: #0d0d14;
+      border: 1px solid #2a2a35;
+      border-radius: 10px;
+      max-width: 680px;
+      width: 100%;
+      max-height: 80vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .modal-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid #1a1a25;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal-header span { font-size: 14px; font-weight: 600; color: #c8c8d8; }
+    .modal-close { background: none; border: none; color: #606078; font-size: 20px; cursor: pointer; padding: 0 4px; }
+    .modal textarea {
+      flex: 1;
+      margin: 16px;
+      padding: 16px;
+      font-size: 13px;
+      line-height: 1.7;
+      background: #08080f;
+      color: #b0b0c0;
+      border: 1px solid #1a1a25;
+      border-radius: 6px;
+      resize: none;
+      font-family: 'Space Mono', monospace;
+      min-height: 300px;
+      outline: none;
+    }
+    .modal p { padding: 0 20px 16px; font-size: 12px; color: #505060; }
+    
+    .section-panel { display: none; }
+    .section-panel.active { display: block; }
+  </style>
+</head>
+<body>
+  
+  <div class="header">
+    <div>
+      <h1>Landing Page Brief</h1>
+      <div class="meta" id="meta">0/24 answered · 0/11 critical fields done</div>
+    </div>
+    <button class="btn-copy" id="copyBtn" onclick="handleCopy()">Copy Brief</button>
+  </div>
+  
+  <div class="progress-track">
+    <div class="progress-bar" id="progressBar" style="width:0%"></div>
+  </div>
+  
+  <div class="section-nav" id="sectionNav"></div>
+  
+  <div class="content" id="content"></div>
+  
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <div class="modal-header">
+        <span>Your Brief — Select All & Copy</span>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+      <textarea id="modalText" readonly onfocus="this.select()"></textarea>
+      <p>Click inside the text area to select all, then Ctrl+C / Cmd+C to copy.</p>
+    </div>
+  </div>
+  
+  <script>
+    const questions = [
+    {
+      section: "Purpose & Strategy",
+      items: [
+      { id: 1, q: "What is the primary goal of the page?", placeholder: "e.g. Lead capture, product sale, app download, waitlist signup…", type: "text", importance: 5 },
+      { id: 2, q: "What is the single most important action you want visitors to take?", placeholder: "e.g. Click 'Sign Up', fill a form, purchase…", type: "text", importance: 5 },
+      { id: 3, q: "Who is the target audience?", placeholder: "e.g. SaaS founders, fitness enthusiasts, parents of toddlers…", type: "textarea", importance: 5 },
+      { id: 4, q: "What problem does your product/service solve for them?", placeholder: "Describe the core pain point…", type: "textarea", importance: 4 },
+      { id: 5, q: "What stage of awareness is your audience in?", type: "select", options: ["Unaware of the problem", "Problem-aware but not shopping", "Actively comparing options", "Already familiar with your brand", "Mixed / Not sure"], importance: 3 },
+      ],
+    },
+    {
+      section: "Brand & Content",
+      items: [
+      { id: 6, q: "Do you have existing brand guidelines?", placeholder: "Colors, fonts, logo, tone of voice — describe or say 'No'", type: "textarea", importance: 4 },
+      { id: 7, q: "What is your value proposition in one sentence?", placeholder: "e.g. 'We help teams ship 3x faster with AI code review'", type: "text", importance: 5 },
+      { id: 8, q: "Do you have testimonials, case studies, or social proof?", placeholder: "Paste them or describe what you have…", type: "textarea", importance: 4 },
+      { id: 9, q: "Do you have product images, screenshots, or demo videos?", placeholder: "Describe what assets are available…", type: "textarea", importance: 4 },
+      { id: 10, q: "What are the top 3 objections or hesitations a visitor might have?", placeholder: "e.g. 'Too expensive', 'Not sure it integrates with my stack'…", type: "textarea", importance: 4 },
+      ],
+    },
+    {
+      section: "Competitive & Market Context",
+      items: [
+      { id: 11, q: "Who are your main competitors and how do you differentiate?", placeholder: "e.g. 'Competitor X does Y, but we do Z differently because…'", type: "textarea", importance: 3 },
+      { id: 12, q: "Are there landing pages (yours or others') you admire?", placeholder: "Paste URLs or describe what you like about them…", type: "textarea", importance: 3 },
+      ],
+    },
+    {
+      section: "Traffic & Technical",
+      items: [
+      { id: 13, q: "Where is traffic coming from?", type: "multiselect", options: ["Paid ads (Google)", "Paid ads (Social)", "Organic search", "Social media", "Email campaigns", "Referrals", "Direct / Other"], importance: 4 },
+      { id: 14, q: "Does the page need to integrate with anything?", placeholder: "e.g. Mailchimp, Stripe, HubSpot, Google Analytics…", type: "text", importance: 3 },
+      { id: 15, q: "Do you need a form? If so, what fields?", placeholder: "e.g. Name, email, company size, message…", type: "text", importance: 4 },
+      { id: 16, q: "Single page or with navigation/sub-sections?", type: "select", options: ["Single page (no nav)", "Single page with anchor nav", "Multi-section with sticky nav", "No preference"], importance: 3 },
+      { id: 17, q: "Framework or hosting preference?", type: "select", options: ["Static HTML/CSS/JS", "React", "Next.js", "WordPress", "No preference"], importance: 2 },
+      ],
+    },
+    {
+      section: "Design Preferences",
+      items: [
+      { id: 18, q: "What visual style do you want?", type: "multiselect", options: ["Minimal / Clean", "Bold / High-contrast", "Corporate / Professional", "Playful / Colorful", "Luxury / Refined", "Brutalist / Raw", "Editorial / Magazine", "Retro / Vintage", "Other (describe below)"], importance: 3 },
+      { id: 19, q: "Layout structure preference?", type: "select", options: ["Hero → Features → Social proof → CTA", "Long-form sales page", "App-style above the fold", "Storytelling / scroll-driven", "No preference — you decide"], importance: 3 },
+      { id: 20, q: "Color mode preference?", type: "select", options: ["Light mode", "Dark mode", "Auto / system preference", "No preference"], importance: 2 },
+      ],
+    },
+    {
+      section: "Pricing & Offer",
+      items: [
+      { id: 21, q: "Is there a specific offer, discount, or incentive to highlight?", placeholder: "e.g. '14-day free trial', '20% off first month'…", type: "text", importance: 3 },
+      { id: 22, q: "Does pricing need to be displayed?", type: "select", options: ["Yes — show pricing tiers", "Yes — single price", "No — keep it off the page", "Not sure yet"], importance: 3 },
+      ],
+    },
+    {
+      section: "Measurement",
+      items: [
+      { id: 23, q: "How will you measure success?", placeholder: "e.g. Conversion rate, number of signups, revenue…", type: "text", importance: 3 },
+      { id: 24, q: "Do you need A/B testing considerations built in?", type: "select", options: ["Yes", "No", "Maybe later"], importance: 2 },
+      ],
+    },
+    ];
+    
+    const badgeLabels = { 5: "Critical", 4: "High", 3: "Medium", 2: "Low" };
+    const answers = {};
+    const multiSelects = {};
+    let activeSection = 0;
+    
+    const totalCount = questions.reduce((s, sec) => s + sec.items.length, 0);
+    const criticalIds = questions.flatMap(s => s.items.filter(i => i.importance >= 4).map(i => i.id));
+    
+    function updateMeta() {
+      const filled = Object.values(answers).filter(v => v && v.trim()).length;
+      const critFilled = criticalIds.filter(id => answers[id] && answers[id].trim()).length;
+      document.getElementById('meta').textContent = `${filled}/${totalCount} answered · ${critFilled}/${criticalIds.length} critical fields done`;
+      document.getElementById('progressBar').style.width = `${(filled / totalCount) * 100}%`;
+      const btn = document.getElementById('copyBtn');
+      if (critFilled === criticalIds.length) btn.classList.add('ready');
+      else btn.classList.remove('ready');
+    }
+    
+    function setAnswer(id, val) {
+      answers[id] = val;
+      updateMeta();
+    }
+    
+    function toggleMulti(id, option) {
+      if (!multiSelects[id]) multiSelects[id] = [];
+      const arr = multiSelects[id];
+      const idx = arr.indexOf(option);
+      if (idx >= 0) arr.splice(idx, 1);
+      else arr.push(option);
+      setAnswer(id, arr.join(", "));
+      renderSection();
+    }
+    
+    function selectOption(id, option) {
+      setAnswer(id, option);
+      renderSection();
+    }
+    
+    function generateOutput() {
+      let out = "# Landing Page Brief\n\n";
+      questions.forEach(section => {
+        out += `## ${section.section}\n\n`;
+        section.items.forEach(item => {
+          const ans = answers[item.id] || "(not answered)";
+          out += `**Q${item.id}. ${item.q}**\n${ans}\n\n`;
+        });
+      });
+      return out;
+    }
+    
+    function handleCopy() {
+      const text = generateOutput();
+      try {
+        navigator.clipboard.writeText(text).then(() => {
+          const btn = document.getElementById('copyBtn');
+          btn.textContent = '✓ Copied to clipboard';
+          setTimeout(() => { btn.textContent = 'Copy Brief'; }, 2000);
+        }).catch(() => showModal(text));
+      } catch { showModal(text); }
+    }
+    
+    function showModal(text) {
+      const modal = document.getElementById('modal');
+      document.getElementById('modalText').value = text;
+      modal.classList.add('visible');
+    }
+    
+    function closeModal() {
+      document.getElementById('modal').classList.remove('visible');
+    }
+    
+    function switchSection(idx) {
+      activeSection = idx;
+      document.querySelectorAll('.section-nav button').forEach((btn, i) => {
+        btn.classList.toggle('active', i === idx);
+      });
+      renderSection();
+    }
+    
+    function renderNav() {
+      const nav = document.getElementById('sectionNav');
+      nav.innerHTML = '';
+      questions.forEach((sec, i) => {
+        const btn = document.createElement('button');
+        btn.textContent = sec.section;
+        btn.className = i === activeSection ? 'active' : '';
+        btn.onclick = () => switchSection(i);
+        nav.appendChild(btn);
+      });
+    }
+    
+    function renderSection() {
+      const container = document.getElementById('content');
+      const sec = questions[activeSection];
+      let html = `<h2>${sec.section}</h2>`;
+      
+      sec.items.forEach(item => {
+        html += `<div class="question-block">`;
+          html += `<div class="q-header"><span class="q-num">Q${item.id}</span><span class="badge badge-${item.importance}">${badgeLabels[item.importance]}</span></div>`;
+          html += `<label class="q-label">${item.q}</label>`;
+          
+          if (item.type === 'text') {
+            const val = answers[item.id] || '';
+            html += `<input type="text" placeholder="${item.placeholder || ''}" value="${escapeHtml(val)}" oninput="setAnswer(${item.id}, this.value)">`;
+          } else if (item.type === 'textarea') {
+            const val = answers[item.id] || '';
+            html += `<textarea rows="3" placeholder="${item.placeholder || ''}" oninput="setAnswer(${item.id}, this.value)">${escapeHtml(val)}</textarea>`;
+          } else if (item.type === 'select') {
+            html += `<div class="options">`;
+              item.options.forEach(opt => {
+                const sel = answers[item.id] === opt ? 'selected' : '';
+                html += `<button class="opt-btn ${sel}" onclick="selectOption(${item.id}, '${escapeJs(opt)}')">${opt}</button>`;
+              });
+              html += `</div>`;
+            } else if (item.type === 'multiselect') {
+              html += `<div class="options">`;
+                const selected = multiSelects[item.id] || [];
+                item.options.forEach(opt => {
+                  const sel = selected.includes(opt) ? 'selected' : '';
+                  const check = selected.includes(opt) ? '✓ ' : '';
+                  html += `<button class="opt-btn ${sel}" onclick="toggleMulti(${item.id}, '${escapeJs(opt)}')">${check}${opt}</button>`;
+                });
+                html += `</div>`;
+              }
+              
+              html += `</div>`;
+            });
+            
+            // Nav buttons
+            html += `<div class="nav-buttons">`;
+              html += `<button class="nav-btn" ${activeSection === 0 ? 'disabled' : ''} onclick="switchSection(${activeSection - 1})">← Previous</button>`;
+              html += `<button class="nav-btn next" ${activeSection === questions.length - 1 ? 'disabled' : ''} onclick="switchSection(${activeSection + 1})">Next →</button>`;
+              html += `</div>`;
+              
+              container.innerHTML = html;
+            }
+            
+            function escapeHtml(s) {
+              return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+            }
+            function escapeJs(s) {
+              return s.replace(/'/g, "\\'").replace(/"/g, '\\"');
+            }
+            
+            // Init
+            renderNav();
+            renderSection();
+            updateMeta();
+          </script>
+        </body>
+        </html>
+        

@@ -62,12 +62,11 @@
 <div class="article-meta">
   {% if page.source_type == "Original" %}
   <span class="article-meta-type article-meta-type--original">
-    <!-- <img src="/images/Kan-Aikido-CT_48.webp" class="meta-icon" alt=""> -->
-    <img src="/images/Kan-Aikido-CT_48.webp" class="meta-icon kan" alt="Kan">
-    Original
+    <img src="/images/Kan-Aikido-cT_48.webp" class="meta-icon kan" alt="Kan">
+    <span class="article-meta-type-text">Bài gốc</span>
   </span> 
   {% else %}
-  <span class="article-meta-type article-meta-type--repost">Republished</span>
+  <span class="article-meta-type article-meta-type--repost">Đăng lại</span>
   {% endif %}
   <div class="article-meta-date">
     <span class="article-meta-label">Ngày xuất bản:</span> {{ page.date_published | date: "%d/%m/%Y" }}

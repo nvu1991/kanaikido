@@ -176,15 +176,6 @@ body {
   color: var(--slate);
 }
 
-.article-meta-date {
-  margin-bottom: 8px;
-}
-
-.article-meta-label {
-  color: var(--charcoal);
-  font-weight: 600;
-}
-
 .article-meta-type {
   display: inline-flex;
   align-items: center;
@@ -206,6 +197,20 @@ body {
 .article-meta-type--repost {
   color: var(--slate);
   border-color: rgba(107, 123, 140, 0.3);
+}
+
+.article-meta-type-text {
+  position: relative;
+  top: 1px;
+}
+
+.article-meta-date {
+  margin-bottom: 8px;
+}
+
+.article-meta-label {
+  color: var(--charcoal);
+  font-weight: 600;
 }
 
 /* Stats row */

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tags | Kan Aikido</title>
+  <meta name="description" content="">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700;800;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Ysabeau+Infant:wght@200;300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  
+</head>
+<body>
+  <nav class="site-nav ">
+  <!-- ...
+</nav>
+
+<nav class="site-nav"> -->
+  <a href="/" class="nav-brand">
+    <img src="/images/Kan-Aikido-Logo_cW_80.webp" alt="Kan Aikido">
+    Kan Aikido
+  </a>
+  <div class="nav-links">
+    <a href="/about/">Giới thiệu</a>
+    <a href="#">Tập luyện</a>
+    <a href="/articles/">Bài viết</a>
+    <a href="#">Tham gia</a>
+    <a href="#">Khác</a>
+  </div>
+</nav>
+
+<header class="article-header">
+  <h1>Tags</h1>
+  
+</header>
+
+<div class="article-list">
+  <div id="tag-title"></div>
+<div id="tag-results" class="article-list"></div>
+
+<script>
+  const articles = [
+    
+      
+      {
+        title: "Aikido — Võ Đạo Hòa Hợp",
+        url: "/about/aikido/",
+        tags: ["Lịch sử Aikido","Hiệp Khí Đạo","Võ đạo hoà hợp","Triết lý Aikido"],
+        desc: "Lịch sử, đặc trưng và các dòng phái Aikido",
+        date: "09/04/2020"
+      },
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      {
+        title: "Kan Aikido — Giản Hiệp Khí Đạo",
+        url: "/about/kan-aikido/",
+        tags: ["Triết lý Giản Hiệp Khí Đạo","Thông tin chung","Khẩu hiệu"],
+        desc: "Một cách thể hiện giản hoá Aikido của những nền nguyên thuỷ",
+        date: "11/08/2023"
+      },
+      
+    
+      
+      {
+        title: "Phỏng vấn Shoji Nishio (1984)",
+        url: "/articles/nishio-interview-1984/",
+        tags: ["Nishio","Phỏng vấn","O-Sensei","Triết lý","Lịch sử Aikido"],
+        desc: "Cuộc phỏng vấn Nishio Shoji Sensei, 8 đẳng Aikido, về con đường võ thuật và những kỷ niệm với O-Sensei. Được thực hiện ngày 22/5/1983 tại Tokyo.",
+        date: "08/06/2025"
+      },
+      
+    
+      
+      {
+        title: "Shoji Nishio",
+        url: "/about/nishio/",
+        tags: ["Võ sư đa năng","Phong cách Nishio","Aikido Toho Iai"],
+        desc: "Ngôn ngữ võ thuật lặng lẽ của võ sư đa năng",
+        date: "03/03/2022"
+      },
+      
+    
+      
+      {
+        title: "Morihei Ueshiba — Người Khai Sáng, Võ Sĩ Bao Dung",
+        url: "/about/osensei/",
+        tags: ["Osensei","Sư tổ","Người sáng lập","Triết lý gốc","Nhân cách"],
+        desc: "Thông tin về O Sensei, người sáng lập Aikido",
+        date: "20/10/2019"
+      },
+      
+    
+      
+    
+  ];
+
+  const params = new URLSearchParams(window.location.search);
+  const tagSlug = params.get('tag');
+
+  if (tagSlug) {
+    const matches = articles.filter(a =>
+      a.tags.some(t => slugify(t) === tagSlug)
+    );
+
+    const tagName = matches.length > 0
+      ? matches[0].tags.find(t => slugify(t) === tagSlug)
+      : tagSlug;
+
+    document.getElementById('tag-title').innerHTML =
+      '<h2>Bài viết về: ' + tagName + '</h2>';
+
+    document.getElementById('tag-results').innerHTML = matches.map(a =>
+      '<a href="' + a.url + '" class="article-card">' +
+        '<h2>' + a.title + '</h2>' +
+        (a.desc ? '<p>' + a.desc + '</p>' : '') +
+        (a.date ? '<span class="article-card-date">' + a.date + '</span>' : '') +
+      '</a>'
+    ).join('');
+
+    if (matches.length === 0) {
+      document.getElementById('tag-results').innerHTML =
+        '<p>Không tìm thấy bài viết nào.</p>';
+    }
+  } else {
+    // No tag selected — show all tags
+    const allTags = {};
+    articles.forEach(a => {
+      a.tags.forEach(t => {
+        const s = slugify(t);
+        if (!allTags[s]) allTags[s] = { name: t, count: 0 };
+        allTags[s].count++;
+      });
+    });
+
+    document.getElementById('tag-title').innerHTML = '<h2>Tất cả Tags</h2>';
+    document.getElementById('tag-results').innerHTML =
+      '<div class="tag-cloud">' +
+      Object.entries(allTags).map(([slug, tag]) =>
+        '<a href="/tags/?tag=' + slug + '" class="tag-item">' +
+          tag.name + ' <span>(' + tag.count + ')</span>' +
+        '</a>'
+      ).join('') +
+      '</div>';
+  }
+
+  function slugify(text) {
+    return text.toString().toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  }
+</script>
+</div>
+
+<footer>
+  <div class="footer-name">Kan Aikido</div>
+  <div class="footer-viet">Võ đường Kan Aikido</div>
+  <a href="https://m.me/kanaikido?text=Xin%20ch%C3%A0o%20Kan%20Aikido" target="_blank" rel="noopener" class="footer-contact">
+    <span  alt="Messenger" class="footer-contact-icon" ></span>
+    Liên hệ
+  </a>
+</footer>
+</body>
+</html>

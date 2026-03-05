@@ -97,12 +97,17 @@
   {% if page.tags.size > 0 %}
   <div class="article-meta-tags">
     <span class="article-meta-label">Tags:</span>
-    {% for tag in page.tags %}
+    <!-- {% for tag in page.tags %}
       <a href="/tags/{{ tag | slugify }}">{{ tag }}</a>
+    {% endfor %} -->
+    {% for tag in page.tags %}
+      <a href="/tags/?tag={{ tag | slugify }}">{{ tag }}</a>
     {% endfor %}
   </div>
   {% endif %}
+  
 </div>
+
 
 <script>
 (function() {
@@ -133,3 +138,24 @@
   }, 500);
 })();
 </script>
+
+{% if page.bilingual %}
+<div class="lang-toggle">
+  <button class="lang-btn active" data-lang="vi"><img src="/images/VN.svg" alt="Tiếng Việt"></button>
+  <button class="lang-btn" data-lang="en"><img src="/images/EN.svg" alt="English"></button>
+</div>
+
+<script>
+document.addEventListener('click', function(e) {
+  if (!e.target.classList.contains('lang-btn')) return;
+  const lang = e.target.dataset.lang;
+  document.querySelectorAll('[class^="lang-"]').forEach(el => {
+    if (el.classList.contains('lang-toggle')) return;
+    el.style.display = el.classList.contains('lang-' + lang) ? '' : 'none';
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+});
+</script>
+{% endif %}

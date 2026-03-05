@@ -697,3 +697,124 @@ footer {
   font-style: italic;
   margin-bottom: 0.75rem;
 }
+
+/* ========================================
+   TAG PAGE SECTION
+   ======================================== */
+
+/* Tag cloud */
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.tag-item {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  color: var(--teal);
+  text-decoration: none;
+  padding: 8px 16px;
+  background: white;
+  border: 1px solid rgba(43, 45, 47, 0.15);
+  transition: background 0.2s ease;
+}
+
+.tag-item:hover {
+  background: var(--teal);
+  color: var(--ivory);
+}
+
+.tag-item span {
+  color: var(--slate);
+  font-size: 0.9rem;
+}
+
+.tag-item:hover span {
+  color: var(--ivory);
+}
+
+/* Date in article cards */
+.article-card-date {
+  font-size: 0.9rem;
+  color: var(--slate);
+  display: block;
+  margin-top: 8px;
+}
+
+/* ========================================
+   LANGUAGE BUTTON SECTION
+   ======================================== */
+
+.lang-toggle {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 20px 24px 0;
+  display: flex;
+  gap: 8px;
+  display: flex;
+  vertical-align: middle;
+}
+
+.lang-btn {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 0.95rem;
+  /* padding: 6px 16px; */
+  border: 1px solid rgba(43, 45, 47, 0.15);
+  background: white;
+  color: var(--slate);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+}
+
+
+.lang-btn img {
+  width: 20px;
+  height: auto;
+  display: block;
+}
+
+.lang-btn.active {
+  /* background: var(--teal); */
+  color: var(--ivory);
+  border-color: var(--teal);
+  border: 1.5px solid var(--teal);
+}
+
+/* ========================================
+   INTERVIEW STYLES
+   ======================================== */
+
+.interview-intro {
+  font-size: 1.05rem;
+  color: var(--slate);
+  font-style: italic;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(43, 45, 47, 0.15);
+  margin-bottom: 32px;
+}
+
+.interview-q {
+  margin-top: 32px;
+}
+
+.interview-q strong {
+  color: var(--teal);
+}
+
+.interview-a strong {
+  color: var(--rich-black);
+}
+
+.interview-credit {
+  font-size: 0.95rem;
+  color: var(--slate);
+  text-align: center;
+}

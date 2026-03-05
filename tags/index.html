@@ -1,0 +1,79 @@
+---
+layout: hub
+title: Tags
+---
+
+<div id="tag-title"></div>
+<div id="tag-results" class="article-list"></div>
+
+<script>
+  const articles = [
+    {% for page in site.html_pages %}
+      {% if page.tags %}
+      {
+        title: {{ page.title | jsonify }},
+        url: "{{ page.url }}",
+        tags: {{ page.tags | jsonify }},
+        desc: {{ page.description | default: "" | jsonify }},
+        date: {{ page.date_published | default: "" | jsonify }}
+      },
+      {% endif %}
+    {% endfor %}
+  ];
+
+  const params = new URLSearchParams(window.location.search);
+  const tagSlug = params.get('tag');
+
+  if (tagSlug) {
+    const matches = articles.filter(a =>
+      a.tags.some(t => slugify(t) === tagSlug)
+    );
+
+    const tagName = matches.length > 0
+      ? matches[0].tags.find(t => slugify(t) === tagSlug)
+      : tagSlug;
+
+    document.getElementById('tag-title').innerHTML =
+      '<h2>Bài viết về: ' + tagName + '</h2>';
+
+    document.getElementById('tag-results').innerHTML = matches.map(a =>
+      '<a href="' + a.url + '" class="article-card">' +
+        '<h2>' + a.title + '</h2>' +
+        (a.desc ? '<p>' + a.desc + '</p>' : '') +
+        (a.date ? '<span class="article-card-date">' + a.date + '</span>' : '') +
+      '</a>'
+    ).join('');
+
+    if (matches.length === 0) {
+      document.getElementById('tag-results').innerHTML =
+        '<p>Không tìm thấy bài viết nào.</p>';
+    }
+  } else {
+    // No tag selected — show all tags
+    const allTags = {};
+    articles.forEach(a => {
+      a.tags.forEach(t => {
+        const s = slugify(t);
+        if (!allTags[s]) allTags[s] = { name: t, count: 0 };
+        allTags[s].count++;
+      });
+    });
+
+    document.getElementById('tag-title').innerHTML = '<h2>Tất cả Tags</h2>';
+    document.getElementById('tag-results').innerHTML =
+      '<div class="tag-cloud">' +
+      Object.entries(allTags).map(([slug, tag]) =>
+        '<a href="/tags/?tag=' + slug + '" class="tag-item">' +
+          tag.name + ' <span>(' + tag.count + ')</span>' +
+        '</a>'
+      ).join('') +
+      '</div>';
+  }
+
+  function slugify(text) {
+    return text.toString().toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  }
+</script>

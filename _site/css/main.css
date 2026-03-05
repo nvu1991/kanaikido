@@ -250,7 +250,7 @@ body {
   gap: 8px;
 }
 
-.article-meta-tags a,
+.article-content .article-meta-tags a,
 .article-meta-tags span:not(.article-meta-label) {
   font-size: 0.85rem;
   color: var(--teal);
@@ -776,7 +776,7 @@ footer {
 
 
 .lang-btn img {
-  width: 20px;
+  width: 16px;
   height: auto;
   display: block;
 }

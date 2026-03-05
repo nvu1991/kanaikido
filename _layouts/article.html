@@ -22,7 +22,20 @@ layout: default
 <div class="article-content">
   {{ content }}
   <div class="article-author">{{ page.author }}</div>
+
+  <div class="article-meta">
+    {% if page.tags.size > 0 %}
+    <div class="article-meta-tags">
+      <span class="article-meta-label">Tags:</span>
+      {% for tag in page.tags %}
+        <a href="/tags/?tag={{ tag | slugify }}">{{ tag }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+
 </div>
+  
 
 {% include comments.html %}
 

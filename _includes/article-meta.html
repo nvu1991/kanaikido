@@ -94,17 +94,14 @@
     </span>
   </div>
 
-  {% if page.tags.size > 0 %}
+  <!-- {% if page.tags.size > 0 %}
   <div class="article-meta-tags">
     <span class="article-meta-label">Tags:</span>
-    <!-- {% for tag in page.tags %}
-      <a href="/tags/{{ tag | slugify }}">{{ tag }}</a>
-    {% endfor %} -->
     {% for tag in page.tags %}
       <a href="/tags/?tag={{ tag | slugify }}">{{ tag }}</a>
     {% endfor %}
   </div>
-  {% endif %}
+  {% endif %} -->
   
 </div>
 

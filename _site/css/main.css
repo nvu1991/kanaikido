@@ -176,6 +176,12 @@ body {
   color: var(--slate);
 }
 
+.article-meta-box-container{
+  display: flex;
+  justify-content: space-between;
+
+}
+
 .article-meta-type {
   display: inline-flex;
   align-items: center;
@@ -202,6 +208,49 @@ body {
 .article-meta-type-text {
   position: relative;
   top: 1px;
+}
+
+/* ========================================
+   LANGUAGE BUTTON SECTION
+   ======================================== */
+
+.lang-toggle {
+  /* max-width: 720px;
+  margin: 0 auto; */
+  /* padding: 20px 24px 0; */
+  gap: 8px;
+  display: flex;
+  vertical-align: middle;
+  margin-bottom: 12px;
+}
+
+.lang-btn {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 0.95rem;
+  /* padding: 6px 16px; */
+  border: 1px solid rgba(43, 45, 47, 0.15);
+  background: white;
+  color: var(--slate);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+}
+
+
+.lang-btn img {
+  width: 16px;
+  height: auto;
+  display: block;
+}
+
+.lang-btn.active {
+  /* background: var(--teal); */
+  color: var(--ivory);
+  border-color: var(--teal);
+  border: 1.5px solid var(--teal);
 }
 
 .article-meta-date {
@@ -743,49 +792,6 @@ footer {
   color: var(--slate);
   display: block;
   margin-top: 8px;
-}
-
-/* ========================================
-   LANGUAGE BUTTON SECTION
-   ======================================== */
-
-.lang-toggle {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 20px 24px 0;
-  display: flex;
-  gap: 8px;
-  display: flex;
-  vertical-align: middle;
-}
-
-.lang-btn {
-  font-family: 'EB Garamond', Georgia, serif;
-  font-size: 0.95rem;
-  /* padding: 6px 16px; */
-  border: 1px solid rgba(43, 45, 47, 0.15);
-  background: white;
-  color: var(--slate);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6px;
-}
-
-
-.lang-btn img {
-  width: 16px;
-  height: auto;
-  display: block;
-}
-
-.lang-btn.active {
-  /* background: var(--teal); */
-  color: var(--ivory);
-  border-color: var(--teal);
-  border: 1.5px solid var(--teal);
 }
 
 /* ========================================

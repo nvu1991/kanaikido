@@ -60,18 +60,25 @@
 {% endif %}
 
 <div class="article-meta">
-  {% if page.source_type == "Original" %}
-  <span class="article-meta-type article-meta-type--original">
-    <img src="/images/Kan-Aikido-logo-cT_48.webp" class="meta-icon kan" alt="Kan">
-    <span class="article-meta-type-text">Bài gốc</span>
-  </span> 
-  {% else %}
-  <span class="article-meta-type article-meta-type--repost">Đăng lại</span>
-  {% endif %}
+  <div class="article-meta-box-container">
+    {% if page.source_type == "Original" %}
+    <span class="article-meta-type article-meta-type--original">
+      <img src="/images/Kan-Aikido-logo-cT_48.webp" class="meta-icon kan" alt="Kan">
+      <span class="article-meta-type-text">Bài gốc</span>
+    </span> 
+    {% else %}
+    <span class="article-meta-type article-meta-type--repost">Đăng lại</span>
+    {% endif %}
+    {% if page.bilingual %}
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="vi"><img src="/images/VN.svg" alt="Tiếng Việt"></button>
+      <button class="lang-btn" data-lang="en"><img src="/images/EN.svg" alt="English"></button>
+    </div>
+    {% endif %}
+  </div>
   <div class="article-meta-date">
     <span class="article-meta-label">Ngày xuất bản:</span> {{ page.date_published | date: "%d/%m/%Y" }}
   </div>
-
   <div class="article-meta-stats">
     <span class="meta-stat">
       <img src="/images/icon-view.svg" class="meta-icon" alt="">
@@ -92,17 +99,7 @@
       <img src="/images/icon-comment.svg" class="meta-icon" alt="">
       <span class="meta-count">...</span> bình luận
     </span>
-  </div>
-
-  <!-- {% if page.tags.size > 0 %}
-  <div class="article-meta-tags">
-    <span class="article-meta-label">Tags:</span>
-    {% for tag in page.tags %}
-      <a href="/tags/?tag={{ tag | slugify }}">{{ tag }}</a>
-    {% endfor %}
-  </div>
-  {% endif %} -->
-  
+  </div>  
 </div>
 
 
@@ -137,11 +134,6 @@
 </script>
 
 {% if page.bilingual %}
-<div class="lang-toggle">
-  <button class="lang-btn active" data-lang="vi"><img src="/images/VN.svg" alt="Tiếng Việt"></button>
-  <button class="lang-btn" data-lang="en"><img src="/images/EN.svg" alt="English"></button>
-</div>
-
 <script>
 document.addEventListener('click', function(e) {
   if (!e.target.classList.contains('lang-btn')) return;

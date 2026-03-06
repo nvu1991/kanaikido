@@ -75,16 +75,18 @@
 
 
 <div class="article-meta">
-  
-  <span class="article-meta-type article-meta-type--original">
-    <img src="/images/Kan-Aikido-logo-cT_48.webp" class="meta-icon kan" alt="Kan">
-    <span class="article-meta-type-text">Bài gốc</span>
-  </span> 
-  
+  <div class="article-meta-box-container">
+    
+    <span class="article-meta-type article-meta-type--original">
+      <img src="/images/Kan-Aikido-logo-cT_48.webp" class="meta-icon kan" alt="Kan">
+      <span class="article-meta-type-text">Bài gốc</span>
+    </span> 
+    
+    
+  </div>
   <div class="article-meta-date">
     <span class="article-meta-label">Ngày xuất bản:</span> 20/10/2019
   </div>
-
   <div class="article-meta-stats">
     <span class="meta-stat">
       <img src="/images/icon-view.svg" class="meta-icon" alt="">
@@ -105,25 +107,7 @@
       <img src="/images/icon-comment.svg" class="meta-icon" alt="">
       <span class="meta-count">...</span> bình luận
     </span>
-  </div>
-
-  <!-- 
-  <div class="article-meta-tags">
-    <span class="article-meta-label">Tags:</span>
-    
-      <a href="/tags/?tag=osensei">Osensei</a>
-    
-      <a href="/tags/?tag=sư-tổ">Sư tổ</a>
-    
-      <a href="/tags/?tag=người-sáng-lập">Người sáng lập</a>
-    
-      <a href="/tags/?tag=triết-lý-gốc">Triết lý gốc</a>
-    
-      <a href="/tags/?tag=nhân-cách">Nhân cách</a>
-    
-  </div>
-   -->
-  
+  </div>  
 </div>
 
 
@@ -157,25 +141,6 @@
 })();
 </script>
 
-
-<div class="lang-toggle">
-  <button class="lang-btn active" data-lang="vi"><img src="/images/VN.svg" alt="Tiếng Việt"></button>
-  <button class="lang-btn" data-lang="en"><img src="/images/EN.svg" alt="English"></button>
-</div>
-
-<script>
-document.addEventListener('click', function(e) {
-  if (!e.target.classList.contains('lang-btn')) return;
-  const lang = e.target.dataset.lang;
-  document.querySelectorAll('[class^="lang-"]').forEach(el => {
-    if (el.classList.contains('lang-toggle')) return;
-    el.style.display = el.classList.contains('lang-' + lang) ? '' : 'none';
-  });
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.lang === lang);
-  });
-});
-</script>
 
 
 <div class="article-content">

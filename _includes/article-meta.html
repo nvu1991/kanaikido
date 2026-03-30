@@ -62,12 +62,17 @@
 <div class="article-meta">
   <div class="article-meta-box-container">
     {% if page.source_type == "Original" %}
-    <span class="article-meta-type article-meta-type--original">
+    <span class="article-meta-type article-meta-type--original"
+      data-tooltip="Được viết và xuất bản lần đầu trên Kan Aikido">
       <img src="/images/Kan-Aikido-logo-cT_48.webp" class="meta-icon kan" alt="Kan">
       <span class="article-meta-type-text">Bài gốc</span>
     </span> 
     {% else %}
-    <span class="article-meta-type article-meta-type--repost">Đăng lại</span>
+    <span class="article-meta-type article-meta-type--repost"
+      data-tooltip="Được đăng lại hoặc trích dẫn từ nguồn khác">
+      <img src="/images/icon-repost.svg" class="meta-icon" alt="Đăng lại">
+      <span class="article-meta-type-text">Đăng lại</span>
+    </span>
     {% endif %}
     {% if page.bilingual %}
     <div class="lang-toggle">

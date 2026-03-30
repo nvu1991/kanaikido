@@ -193,6 +193,56 @@ body {
   padding: 2px 10px;
   border: 1px solid;
   margin-bottom: 12px;
+  position: relative; /* ← add this */
+  cursor: default;
+}
+
+/* tooltip bubble */
+.article-meta-type::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: #fff;
+  color: #555;
+  border: 1px solid rgba(0,0,0,0.12);
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  font-weight: 400;
+  white-space: nowrap;
+  padding: 5px 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+/* arrow */
+.article-meta-type::after {
+  content: '';
+  position: absolute;
+  bottom: calc(100% + 2px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid rgba(0,0,0,0.12);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+/* show on hover */
+.article-meta-type:hover::before,
+.article-meta-type:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 .article-meta-type--original {
@@ -200,10 +250,15 @@ body {
   border-color: rgba(26, 95, 122, 0.3);
 }
 
+.article-meta-type--original::before { border-left: 2px solid rgba(26, 95, 122, 0.5); }
+
 .article-meta-type--repost {
   color: var(--slate);
   border-color: rgba(107, 123, 140, 0.3);
 }
+
+/* tinted left border to match each badge color */
+.article-meta-type--repost::before   { border-left: 2px solid rgba(107, 123, 140, 0.4); }
 
 .article-meta-type-text {
   position: relative;
